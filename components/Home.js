@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { Button, StyleSheet, View, Text } from 'react-native';
 
 class Home extends Component {
   constructor(props){
@@ -16,6 +16,10 @@ class Home extends Component {
         <Text>
             Home view
         </Text>
+        <Button 
+            title="Lets Chat"
+            onPress={() => this.props.navigation.navigate('Second')}
+        />
         </View>
     )
   }

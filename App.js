@@ -4,14 +4,16 @@ import Home from './components/Home'
 import Chat from './components/Chat'
 import { createStackNavigator } from 'react-navigation';
 
-const RootStack = createStackNavigator({
-    First: {
-        screen: Home
+const RootStack = createStackNavigator(
+    {
+        First: Home,
+        Second: Chat,
+
     },
-    Second: {
-        screen: Chat
-    },
-});
+    {
+    initalRouteName: 'Second',
+    }
+);
 
 export default class App extends React.Component {
   render() {
