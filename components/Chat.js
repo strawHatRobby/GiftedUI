@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-class Home extends Component {
+class Chat extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -14,7 +14,7 @@ class Home extends Component {
     return (
         <View style={styles.container}>
         <Text>
-            Home view
+            Chat view
         </Text>
         </View>
     )
@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Chat;
