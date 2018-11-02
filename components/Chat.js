@@ -10,6 +10,10 @@ class Chat extends Component {
     }
   }
 
+    static navigationOptions  = {
+        title: 'Chat',
+    };
+
   render(){
     return (
         <View style={styles.container}>

@@ -9,11 +9,16 @@ class Home extends Component {
     this.state = {
         
     }
-      this.loadText = this.loadText.bind(this);
+
+    this.loadText = this.loadText.bind(this);
   }
     
+    static navigationOptions = {
+        title: 'Home',
+    }
+
     loadText = () => {
-        let user = this.props.navigation.getParam('user':''))
+        let user = this.props.navigation.getParam('user':'');
         if(!user){
             return (<Text>Home view</Text>)
         }else{
