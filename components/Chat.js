@@ -18,7 +18,11 @@ class Chat extends Component {
         </Text>
         <Button 
             title="Take me Home"
-            onPress={() => this.props.navigation.navigate('First')}
+        onPress={() => this.props.navigation.navigate('First', {
+            itemId: 1,
+            user: "Robin"
+        })
+        }
         />
         <Button 
             title="Lets Chat Some More"

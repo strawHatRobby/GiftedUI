@@ -5,17 +5,27 @@ import { Button, StyleSheet, View, Text } from 'react-native';
 class Home extends Component {
   constructor(props){
     super(props);
+
     this.state = {
         
     }
+      this.loadText = this.loadText.bind(this);
   }
+    
+    loadText = () => {
+        let user = this.props.navigation.getParam('user':''))
+        if(!user){
+            return (<Text>Home view</Text>)
+        }else{
+            return (<Text>Welcome back {user}</Text>)
+        }
+    } 
 
   render(){
+
     return (
         <View style={styles.container}>
-        <Text>
-            Home view
-        </Text>
+        {this.loadText()}
         <Button 
             title="Lets Chat"
             onPress={() => this.props.navigation.navigate('Second')}
