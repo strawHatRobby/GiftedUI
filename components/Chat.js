@@ -28,6 +28,12 @@ class Chat extends Component {
             title="Go Back"
             onPress={() => this.props.navigation.goBack()}
         />
+
+        <Button 
+            title="Go to First Page"
+            onPress={() => this.props.navigation.popToTop()}
+        />
+
         </View>
     )
   }
