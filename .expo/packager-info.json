@@ -1,9 +1,9 @@
 {
-  "packagerPort": 19001,
-  "packagerPid": 8322,
-  "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://i3-mqk.robinfr93.teachme.exp.direct",
-  "packagerNgrokUrl": "https://packager.i3-mqk.robinfr93.teachme.exp.direct",
-  "ngrokPid": 8336,
-  "devToolsPort": 19002
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerPort": null,
+  "expoServerNgrokUrl": "https://es-cmi.robinfr93.teachme.exp.direct",
+  "packagerNgrokUrl": "https://packager.es-cmi.robinfr93.teachme.exp.direct",
+  "ngrokPid": 35999,
+  "devToolsPort": 19003
 }

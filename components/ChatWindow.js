@@ -19,6 +19,7 @@ export default class ChatWindow extends Component {
                 {
                     _id: 1,
                     text: "This is the first step of the tutorial",
+                    // text: this.props.msg,
                     createdAt: new Date(),
                     user: {
                         _id: 1,
@@ -39,6 +40,7 @@ export default class ChatWindow extends Component {
 
 	render(){
 		return(
+
             <GiftedChat messages={this.state.messages} o
             onSend={messages=>this.onSend(messages)}
             user={{
