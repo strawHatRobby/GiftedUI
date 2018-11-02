@@ -20,6 +20,10 @@ class Chat extends Component {
             title="Take me Home"
             onPress={() => this.props.navigation.navigate('First')}
         />
+        <Button 
+            title="Lets Chat Some More"
+            onPress={() => this.props.navigation.push('Second')}
+        />
         </View>
     )
   }
