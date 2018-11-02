@@ -24,6 +24,10 @@ class Chat extends Component {
             title="Lets Chat Some More"
             onPress={() => this.props.navigation.push('Second')}
         />
+        <Button 
+            title="Go Back"
+            onPress={() => this.props.navigation.goBack()}
+        />
         </View>
     )
   }
