@@ -9,48 +9,64 @@ export default class App extends React.Component {
     super(props)
     this.state = {
       isTyping: false,
-      // msgType: '',
-      // msgText: ''
+      isSocketOpen: false,
+      msgType: '',
+      msgText:''
     }
-    this.socket = SocketIOClient("ws://54.172.50.207")
+    this.socket = new WebSocket("ws://54.172.50.207");
+    this.emit = this.emit.bind(this)
   }
-  typingVal = ''
 
-  
-  render() {
-  
-    const msgData = {
+  emit() {
+    this.setState(prevState => ({isSocketOpen : !prevState.isSocketOpen}))
+    this.socket.send(JSON.stringify(this.state.msgText))
+  }
+
+  componentDidMount() {
+    msgData = {
       "user": "rob",
           "channel": "test",
           "text": "Hello",   "type": "message"
       }
-    
-    const msg = JSON.stringify(msgData);
-    const ws = new WebSocket("ws://54.172.50.207")
-    ws.onopen = () => {
-      ws.send(msg)
+
+    this.socket.onopen = () => {
+      console.log("Sending data")
+      this.socket.send(JSON.stringify(msgData))
     }
-    ws.onmessage = (event) => {
-      data = JSON.parse(event.data);
-      console.log(data);
-      // if(data.type==="message"){
-      //   this.setState({
-      //     msgText: data.text
-      //   })
-      //   console.log(this.state.msgText);
+    this.socket.onmessage = (event) => {
+      if(JSON.parse(event.data).type==="message" ){
+      data = JSON.parse(event.data).text
+      
+      this.setState( {
+        msgText: data
+      })
       }
 
+      if(JSON.parse(event.data).text){
+      console.log(JSON.parse(event.data).type)
+      console.log("The event type is " + this.state.msgText)
+      }
     }
+    this.socket.onerror = (event) => console.log(event.message)
+  }
 
-    ws.onerror = (event) => {
-      console.log(event.message);
-    }
+  
+  render() {
+    
+    
+    
 
-    ws.onclose = (event) => {
-      console.log(event.code, event.reason);
-    }
+    
 
-      console.log(this.state.msgType);
+    // ws.onerror = (event) => {
+    //   console.log(event.message);
+    // }
+
+    // ws.onclose = (event) => {
+    //   console.log(event.code, event.reason);
+    // }
+
+
     changeText = () => {
       if(this.state.isTyping){
         return <Text>You can type</Text>

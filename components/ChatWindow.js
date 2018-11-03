@@ -3,13 +3,14 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { GiftedChat  } from 'react-native-gifted-chat';
 
 
+
 export default class ChatWindow extends Component {
     constructor(props){
         super(props);
         this.state = {
             messages: []
         };
-
+        this.socket = new WebSocket("ws://54.172.50.207")
 
     }
 
@@ -32,16 +33,31 @@ export default class ChatWindow extends Component {
     }
 
     onSend(messages = []){
+        msg = {
+            "user":messages[0].user.name,
+            "text":messages[0].text,
+            "type":"message"
+        }
+          
+        console.log(messages);
         this.setState(prevState => ({
             messages: GiftedChat.append(prevState.messages, messages),
         }))
     }
 
+    onReceive(){
+       
+    }
 
-	render(){
+
+
+
+
+	render(){  
+        
 		return(
 
-            <GiftedChat messages={this.state.messages} o
+            <GiftedChat messages={this.state.messages} 
             onSend={messages=>this.onSend(messages)}
             user={{
                 _id: 3,
